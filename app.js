@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 require('dotenv').config();
 const sequelize = require('./src/config/database');
+const Address = require('./src/models/addressModel');
 const PORT = process.env.PORT || 3000;
 
 
