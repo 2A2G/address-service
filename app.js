@@ -3,7 +3,8 @@ const app = express();
 const cors = require('cors');
 require('dotenv').config();
 const sequelize = require('./src/config/database');
-const Address = require('./src/models/addressModel');
+const { Address } = require('./src/models/addressModel');
+const addressRoutes = require('./src/routes/addressRoutes');
 const PORT = process.env.PORT || 3000;
 
 
@@ -11,9 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+app.use('/api-address', addressRoutes);
 
 const connectWithRetry = async (maxRetries = 5, delay = 5000) => {
   let retries = 0;
