@@ -69,4 +69,4 @@ const Address = sequelize.define('Address', {
 });
 
 
-module.exports = Address;
+module.exports = { Address };
